@@ -11,22 +11,30 @@ class BuildStage implements Serializable{
         this.script = script
     }
     
-    def buildStageExecution(){
-         this.script.build job: "job-a"
+    def scmStageExecution(){
+         this.script.build job: this.getScmJobName()
     }
     
-    def deployStageExecution(){
-        this.script.build job: "job-b"
+    def buildStageExecution(){
+        this.script.build job: this.getBuildJobName()
     }
 	
+	def deployStageExecution(){
+		this.script.build job: this.getDeployJobName()
+	}
 	
-	def getjob1Name(){
-		jobname="job-a"
+	
+	def getScmJobName(){
+		jobname="SCM-checkout"
 		return jobname
 	}
 	
-	def getjob2Name(){
-		jobname="job-b"
+	def getBuildJobName(){
+		jobname="Build"
+		return jobname
+	}
+	def getDeployJobName(){
+		jobname="Deploy"
 		return jobname
 	}
 
