@@ -19,4 +19,5 @@ emailext (
 
 
 
-Error: No signature of method: org.foo.BuildStage.emailext() is applicable for argument types: (java.util.LinkedHashMap) values: [[subject:FAILED: Job 'stage-pipeline/pipeline_trigger [14]', ...]]
+Error: java.lang.IllegalArgumentException: Could not instantiate {subject=FAILED: Job 'stage-pipeline/pipeline_trigger [15]', body=<p>FAILED: Job 'stage-pipeline/pipeline_trigger [15]':</p>
+			<p>Check console output at "<a href="http://siwtapp0010.ced.corp.cummins.com:8080/jenkins/job/stage-pipeline/job/pipeline_trigger/15/">stage-pipeline/pipeline_trigger [15]</a>"</p>, recipientProviders=[yashika.singhal@cummins.com]} for EmailExtStep(subject: String, body: String, attachLog?: boolean, attachmentsPattern?: String, compressLog?: boolean, from?: String, mimeType?: String, postsendScript?: String, presendScript?: String, recipientProviders?: RecipientProvider{CulpritsRecipientProvider() | DevelopersRecipientProvider() | FailingTestSuspectsRecipientProvider() | FirstFailingBuildSuspectsRecipientProvider() | ListRecipientProvider() | RequesterRecipientProvider() | UpstreamComitterRecipientProvider()}[], replyTo?: String, to?: String): java.lang.ClassCastException: class hudson.plugins.emailext.EmailExtStep.setRecipientProviders() expects class hudson.plugins.emailext.plugins.RecipientProvider but received class java.lang.String
