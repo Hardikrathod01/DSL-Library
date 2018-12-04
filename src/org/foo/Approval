@@ -1,0 +1,6 @@
+build job: 'build', wait: true
+mail to: 'emailid', subject: "Please approve #${env.BUILD_NUMBER}", body: """
+See ${env.BUILD_URL}input/
+"""
+input submitter: 'userId', message: 'Ready?'
+build job: 'deploy', wait: true
