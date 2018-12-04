@@ -15,3 +15,8 @@ emailext (
         <p>Check console output at "<a href="${env.BUILD_URL}">${env.JOB_NAME} [${env.BUILD_NUMBER}]</a>"</p>""",
       recipientProviders: [[$class: 'DevelopersRecipientProvider']]
     )
+
+
+
+
+Error: No signature of method: org.foo.BuildStage.emailext() is applicable for argument types: (java.util.LinkedHashMap) values: [[subject:FAILED: Job 'stage-pipeline/pipeline_trigger [14]', ...]]
