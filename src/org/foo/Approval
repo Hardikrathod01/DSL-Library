@@ -4,3 +4,6 @@ See ${env.BUILD_URL}input/
 """
 input submitter: 'userId', message: 'Ready?'
 build job: 'deploy', wait: true
+
+
+step([$class: 'Mailer', notifyEveryUnstableBuild: true, recipients: 'me@me.com', sendToIndividuals: true])
