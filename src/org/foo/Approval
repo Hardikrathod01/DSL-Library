@@ -20,3 +20,23 @@ emailext (
 timeout(time:1, unit:'minute') {
     input message:'Approve Build?', submitter: 'userid'
 }
+
+
+
+def buildStageExecution(){
+        this.script.build job: this.getBuildJobName(), wait: true
+		this.script.emailext (
+		  mimeType: 'text/html',
+		  subject: "Await for Approval: Job '${this.script.env.JOB_NAME} [${this.script.env.BUILD_NUMBER}]'",
+		  body: """<p>Await for Approval: Job '${this.script.env.JOB_NAME} [${this.script.env.BUILD_NUMBER}]':</p>
+			<p>Check console output at "<a href="${this.script.env.BUILD_URL}">${this.script.env.JOB_NAME} [${this.script.env.BUILD_NUMBER}]</a>"</p>""",
+		  to: 'yashika.singhal@cummins.com'
+		)
+		this.script.timeout(time:1, unit:'minute') {
+			this.script.input message:'Approve Build?', submitter: 'admin'
+		}
+		
+    }
+    
+    
+    error: Could not instantiate {time=1, unit=minute} for TimeoutStep(time: int, activity?: boolean, unit?: TimeUnit[NANOSECONDS, MICROSECONDS, MILLISECONDS, SECONDS, MINUTES, HOURS, DAYS]): java.lang.IllegalArgumentException: No enum constant java.util.concurrent.TimeUnit.minute
