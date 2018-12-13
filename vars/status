@@ -1,0 +1,13 @@
+public class status{
+	
+	
+	String color
+	String value
+	
+    public status(color,value) {
+        println "initialization BuildStage"
+		this.color=color
+		this.value=value
+		
+    }
+}
