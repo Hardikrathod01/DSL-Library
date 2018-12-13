@@ -1,0 +1,16 @@
+public class thread{
+	String body;
+	String external_url;
+	def status;
+	def fields;
+	String title;
+	//def field;
+	
+	public thread(body,label,external_url,Status,title){
+		this.body=body;
+		this.external_url=external_url;
+		this.status=new status(Status.color,Status.value)
+		this.title=title;
+		this.fields=label;
+	}
+}
