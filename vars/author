@@ -1,0 +1,9 @@
+public class author {
+	String avatar;
+	String name;
+	
+	public author(avatar,name){
+		this.avatar=avatar;
+		this.name=name;
+	}
+}
