@@ -59,7 +59,7 @@ class Pipeline {
         // Creating the jenkins pipeline job
         def workflowJob = new WorkflowJob(Jenkins.instance, fullJobName);
         // Setting the pipeline definition
-        setPipelineDefinition(dslFactory, theJob, config)
+        setPipelineDefinition(dslFactory, workflowJob, config)
        
     }
 
