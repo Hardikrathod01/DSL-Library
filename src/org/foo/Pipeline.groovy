@@ -21,13 +21,13 @@ class Pipeline {
     void create(def dslFactory, Map config) {
         def baseJobFolderName
         // Check the branch, and set the folder name
-        if (dslFactory.binding.gitlabSourceBranch == "master") {
+        if (env.gitlabSourceBranch == "master") {
             baseJobFolderName = config.job.baseJobFolderName
         } else {
             if (config.job.baseJobFolderName) {
-                baseJobFolderName = config.job.baseJobFolderName + config.global.constants.xcicd + dslFactory.binding.gitlabSourceBranch
+                baseJobFolderName = config.job.baseJobFolderName + config.global.constants.xcicd + env.gitlabSourceBranch
             } else {
-                baseJobFolderName = config.global.constants.xcicd.substring(1) + dslFactory.binding.gitlabSourceBranch
+                baseJobFolderName = config.global.constants.xcicd.substring(1) + env.gitlabSourceBranch
             }
 
         }
