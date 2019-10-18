@@ -14,7 +14,7 @@ import static groovy.io.FileType.FILES
 // Get the seed job workspace
 String workspace = SEED_JOB.getWorkspace()
 JsonSlurperClassic slurper = new JsonSlurperClassic()
-String jobsFolder = workspace + "src/org/foo/gradleConfig.cfg"
+String jobsFolder = workspace + "/src/org/foo/gradleConfig.cfg"
 String globalConfig = workspace + "/src/org/foo/baseConfig.cfg"
 File globalConfigFile = new File(globalConfig)
 File configFile = new File(jobsFolder)
