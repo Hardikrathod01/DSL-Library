@@ -1,3 +1,4 @@
+package org.foo
 /*
  * Copyright 2019 General Electric Company. All rights reserved.
  */
