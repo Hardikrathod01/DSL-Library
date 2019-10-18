@@ -14,19 +14,19 @@ import static groovy.io.FileType.FILES
 // Get the seed job workspace
 String workspace = SEED_JOB.getWorkspace()
 JsonSlurperClassic slurper = new JsonSlurperClassic()
-String jobsFolder = workspace + "/jobs/seeds"
+String jobsFolder = workspace + "src/org/foo/gradleConfig.cfg"
 String globalConfig = workspace + "/src/org/foo/baseConfig.cfg"
 File globalConfigFile = new File(globalConfig)
+File configFile = new File(jobsFolder)
 String globalConfigContent = globalConfigFile.getText()
 
-new File(jobsFolder).eachFileRecurse(FILES) {
-    if (it.name.endsWith('.cfg')) {
+
+ 
         // Object for storing parsed json response
-        String finalJson = "{ \"global\":" + globalConfigContent + ", \"job\":" + it.getText() + "}"
+        String finalJson = "{ \"global\":" + globalConfigContent + ", \"job\":" + configFile.getText() + "}"
         def result = slurper.parseText(finalJson)
-        String sourceFile = readFileFromWorkspace(result.global.paths.jobTemplates + result.job.jobType + ".groovy")
-        Class UtilityClass = new GroovyClassLoader(getClass().getClassLoader()).parseClass(sourceFile)
+        Class UtilityClass = new GroovyClassLoader(getClass().getClassLoader()).parseClass("Pipeline")
         GroovyObject groovyObject = (GroovyObject) UtilityClass.getDeclaredConstructor().newInstance()
         groovyObject.create(this, result)
-    }
-}
+   
+
