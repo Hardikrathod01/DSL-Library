@@ -4,6 +4,29 @@ package org.foo
  */
 
 import javaposse.jobdsl.dsl.*
+import hudson.model.FreeStyleProject;
+import hudson.model.*
+import hudson.plugins.git.GitSCM;
+import hudson.plugins.git.BranchSpec;
+import hudson.plugins.git.UserRemoteConfig;
+import hudson.triggers.SCMTrigger;
+import hudson.util.Secret;
+import javaposse.jobdsl.plugin.*;
+import jenkins.model.Jenkins;
+import jenkins.model.JenkinsLocationConfiguration;
+import com.cloudbees.plugins.credentials.CredentialsScope;
+import com.cloudbees.plugins.credentials.domains.Domain;
+import com.cloudbees.plugins.credentials.SystemCredentialsProvider;
+import jenkins.model.JenkinsLocationConfiguration;
+import org.jenkinsci.plugins.plaincredentials.impl.StringCredentialsImpl;
+import org.jenkinsci.plugins.plaincredentials.impl.StringCredentialsImpl.DescriptorImpl;
+import org.jenkinsci.plugins.scriptsecurity.sandbox.Whitelist;
+import org.jenkinsci.plugins.scriptsecurity.sandbox.whitelists.BlanketWhitelist;
+import org.jenkinsci.plugins.workflow.job.WorkflowJob;
+import org.jenkinsci.plugins.workflow.cps.CpsScmFlowDefinition;
+import hudson.plugins.git.extensions.*
+import hudson.plugins.git.extensions.impl.*
+import hudson.tasks.LogRotator
 
 /**
  * The class is the entry point for creating a pipeline Jenkins job.
