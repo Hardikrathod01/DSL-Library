@@ -57,7 +57,7 @@ class Pipeline {
         // Constructing the jenkins job name
         String fullJobName = (baseJobFolderName ? baseJobFolderName + "/" : "") + "${config.job.jobName}"
         // Creating the jenkins pipeline job
-        workflowJob = new WorkflowJob(Jenkins.instance, fullJobName);
+        def workflowJob = new WorkflowJob(Jenkins.instance, fullJobName);
         // Setting the pipeline definition
         setPipelineDefinition(dslFactory, theJob, config)
        
