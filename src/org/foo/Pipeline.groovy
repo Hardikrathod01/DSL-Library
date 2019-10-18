@@ -25,9 +25,9 @@ class Pipeline {
             baseJobFolderName = config.job.baseJobFolderName
         } else {
             if (config.job.baseJobFolderName) {
-                baseJobFolderName = config.job.baseJobFolderName + config.global.constants.xcicd + dslFactory.binding.gitlabSourceBranch
+                baseJobFolderName = config.job.baseJobFolderName + config.global.constants.xcicd
             } else {
-                baseJobFolderName = config.global.constants.xcicd.substring(1) + dslFactory.binding.gitlabSourceBranch
+                baseJobFolderName = config.global.constants.xcicd.substring(1)
             }
 
         }
