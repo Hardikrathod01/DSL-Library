@@ -18,7 +18,7 @@ class Pipeline {
      * @param config contains the configurations required for creating the
      *               Jenkins job.
      */
-    void create(DslFactory dslFactory, Map config) {
+    void create(def dslFactory, Map config) {
         def baseJobFolderName
         // Check the branch, and set the folder name
         if (dslFactory.binding.gitlabSourceBranch == "master") {
