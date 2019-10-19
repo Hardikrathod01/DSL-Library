@@ -25,7 +25,8 @@ String globalConfigContent = globalConfigFile.getText()
         // Object for storing parsed json response
         String finalJson = "{ \"global\":" + globalConfigContent + ", \"job\":" + configFile.getText() + "}"
         def result = slurper.parseText(finalJson)
-        Class UtilityClass = new GroovyClassLoader(getClass().getClassLoader()).parseClass("Pipeline")
+        String sourceFile = readFileFromWorkspace(result.global.paths.jobTemplates + result.job.jobType + ".groovy")
+        Class UtilityClass = new GroovyClassLoader(getClass().getClassLoader()).parseClass(sourceFile)
         GroovyObject groovyObject = (GroovyObject) UtilityClass.getDeclaredConstructor().newInstance()
         groovyObject.create(this, result)
    
