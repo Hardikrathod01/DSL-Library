@@ -19,7 +19,7 @@ String globalConfig = workspace + "/src/org/foo/baseConfig.cfg"
 File globalConfigFile = new File(globalConfig)
 File configFile = new File(jobsFolder)
 String globalConfigContent = globalConfigFile.getText()
-
+echo "print"
 
  
         // Object for storing parsed json response
