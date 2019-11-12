@@ -5,6 +5,7 @@ public class status{
 	String value
 	
     public status(color,value) {
+    println "update"
         println "initialization BuildStage"
 		this.color=color
 		this.value=value
